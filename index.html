@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JEANE LV | Tienda Gamer</title>
+<style>
+:root{--bg:#050812;--panel:#0a1222;--line:#087dff;--blue:#00a8ff;--cyan:#42ddff;--text:#eef8ff;--muted:#8da7bd;--danger:#ff4d6d;--ok:#35e58b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:radial-gradient(circle at 50% -10%,#063b72 0,#050812 38%,#02040a 100%);color:var(--text);min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+nav{position:sticky;top:0;z-index:20;background:rgba(3,8,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid #075dba;display:flex;align-items:center;gap:18px;padding:12px 5%}
+.logo{font-size:27px;font-weight:1000;font-style:italic;color:white;text-shadow:0 0 15px #008cff;white-space:nowrap}.logo span{color:#25c9ff}
+nav .links{display:flex;gap:8px;flex:1;justify-content:center}nav button,.navbtn{background:transparent;color:#dff4ff;border:1px solid transparent;padding:9px 13px;border-radius:10px}nav button:hover,.navbtn.active{border-color:#168fff;background:#062c55}
+.balance{border:1px solid #0b8cff;border-radius:12px;padding:8px 12px;background:#06172b;color:#5fdcff}
+.hero{padding:70px 6% 55px;display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center;max-width:1250px;margin:auto}
+.hero h1{font-size:clamp(46px,7vw,86px);line-height:.9;margin:0 0 18px;font-style:italic;text-shadow:0 0 25px #007dff}.hero h1 span{color:#1ec5ff}.hero p{font-size:20px;color:#b8d4e8;max-width:600px}.tag{color:#50d9ff;font-weight:800;letter-spacing:2px}.hero-card{min-height:330px;border:1px solid #078cff;border-radius:25px;background:linear-gradient(145deg,#071a31,#050914);box-shadow:0 0 45px #006eff25;display:grid;place-items:center;overflow:hidden;position:relative}.hero-card:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:#008cff33;filter:blur(50px)}.avatar{font-size:150px;filter:drop-shadow(0 0 22px #009cff);z-index:1}
+.cta{background:linear-gradient(90deg,#007bff,#00c6ff);border:0;color:white;font-weight:900;padding:13px 22px;border-radius:12px;box-shadow:0 0 22px #008cff66}
+.wrap{max-width:1250px;margin:auto;padding:20px 5% 60px}.section-title{display:flex;justify-content:space-between;align-items:end;margin:25px 0 14px}.section-title h2{margin:0;font-size:28px}.section-title small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.card{background:linear-gradient(145deg,#0a1728,#050914);border:1px solid #075dba;border-radius:17px;padding:18px;box-shadow:0 0 20px #007dff13}.product{text-align:center}.gem{font-size:45px;filter:drop-shadow(0 0 12px #19baff)}.price{font-size:21px;font-weight:900;color:#5fdcff;margin:7px 0 12px}.buy{width:100%;padding:10px;border-radius:10px;border:1px solid #079cff;background:#062b50;color:white;font-weight:800}.buy:hover{background:#087de0}.wide{grid-column:span 2}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.list{display:grid;gap:8px}.row{display:flex;justify-content:space-between;background:#071324;padding:10px;border-radius:9px}.pill{padding:4px 8px;border-radius:99px;font-size:12px;background:#073a63;color:#70ddff}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0}.feature{padding:18px;border:1px solid #075dba;border-radius:15px;background:#06101e}.feature b{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:14px}
+footer{border-top:1px solid #075dba;padding:35px 5%;text-align:center;color:#7894aa}
+.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:50;padding:20px}.modalbox{width:min(500px,100%);background:#081321;border:1px solid #0b91ff;border-radius:20px;padding:24px;box-shadow:0 0 45px #008cff44}.modalbox h2{margin-top:0}.field{display:grid;gap:6px;margin:12px 0}.field label{color:#a9c5d8;font-size:14px}.field input,.field select{width:100%;background:#040a13;color:white;border:1px solid #1768a8;border-radius:10px;padding:11px}.tabs{display:flex;gap:8px;margin-bottom:15px}.tabs button{flex:1;padding:10px;border:1px solid #1768a8;background:#071a2c;color:#bfeeff;border-radius:10px}.tabs .sel{background:#087de0;color:white}
+.note{padding:11px 13px;border-radius:10px;background:#071a2c;color:#9ec7df;border-left:3px solid #0ba8ff;margin:10px 0}.success{color:var(--ok)}.danger{color:#ff7f96}
+.dashboard{display:grid;grid-template-columns:1fr 1.4fr;gap:18px}.stat{font-size:32px;font-weight:900;color:#61ddff}.orders{display:grid;gap:10px}.order{border:1px solid #12598d;background:#061120;padding:14px;border-radius:12px}.orderhead{display:flex;justify-content:space-between;gap:10px}.status{font-size:12px;border-radius:99px;padding:5px 9px;background:#123d58}.admin-actions{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}.mini{padding:7px 10px;border-radius:8px;border:1px solid #1768a8;background:#071a2c;color:white}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.wide{grid-column:span 2}.features{grid-template-columns:repeat(2,1fr)}.dashboard{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr 1fr}nav .links{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.product-grid,.features{grid-template-columns:1fr}.hero{padding-top:45px}.avatar{font-size:110px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">JEANE <span>LV</span></div>
+  <div class="links">
+    <button onclick="show('home')">Inicio</button><button onclick="show('products')">Productos</button>
+    <button onclick="show('wallet')">💳 Billetera</button><button onclick="show('payments')">Métodos de pago</button>
+    <button onclick="show('account')">Mi cuenta</button><button id="adminNav" class="hidden" onclick="show('admin')">⚙ Admin</button>
+  </div>
+  <div id="balanceNav" class="balance hidden">S/ <span id="navBalance">0.00</span></div>
+  <button id="loginNav" class="navbtn" onclick="openAuth()">Iniciar sesión</button>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div><div class="tag">⚡ TIENDA GAMER</div><h1>JEANE <span>LV</span></h1>
+  <p>Diamantes, fragmentos, pases y servicios digitales. Compra usando tu billetera virtual.</p>
+  <button class="cta" onclick="show('products')">VER PRODUCTOS →</button></div>
+  <div class="hero-card"><div class="avatar">😎</div></div>
+</section>
+
+<section class="wrap">
+  <div class="features">
+    <div class="feature">⚡ <b>Atención rápida</b><span>Procesamos tus pedidos después de confirmar el pago.</span></div>
+    <div class="feature">🛡️ <b>Compra protegida</b><span>Tu pedido queda registrado en tu cuenta.</span></div>
+    <div class="feature">💳 <b>Billetera virtual</b><span>Recarga y usa tu saldo para comprar.</span></div>
+    <div class="feature">🔔 <b>Pedidos</b><span>El administrador recibe la alerta de tu compra.</span></div>
+  </div>
+  <div class="section-title"><h2>💎 Diamantes Free Fire</h2><small>Precios actuales</small></div>
+  <div id="homeGems" class="grid"></div>
+</section>
+</main>
+
+<section id="products" class="wrap hidden">
+  <div class="section-title"><h2>🛒 Productos</h2><small>Compra con tu saldo</small></div>
+  <div class="section-title"><h2>💎 Diamantes Free Fire</h2></div><div id="productGems" class="grid"></div>
+  <div class="product-grid" style="margin-top:18px">
+    <div class="card wide"><h2>🧩 Fragmentos</h2><div id="fragments" class="list"></div></div>
+    <div class="card wide"><h2>🎟️ Pases</h2><div class="row"><span>Pase Bohoya</span><b>S/ 5.50</b></div><button class="buy" style="margin-top:12px" onclick="buy('Pase Bohoya',5.5)">COMPRAR</button></div>
+    <div class="card wide"><h2>📺 Streaming</h2><p style="color:#9eb6c8">Spotify · YouTube · Netflix · DIRECTV GO · Paramount+ · Disney+ · Flujo TV · Crunchyroll y más.</p><button class="buy" onclick="contact()">CONSULTAR</button></div>
+  </div>
+</section>
+
+<section id="wallet" class="wrap hidden">
+  <div class="section-title"><h2>💳 Billetera virtual</h2><small>Recarga saldo para comprar</small></div>
+  <div class="dashboard">
+    <div class="card"><div style="color:#9bb7ca">Saldo disponible</div><div class="stat">S/ <span id="walletBalance">0.00</span></div><div class="note">El saldo se acredita cuando el administrador verifica tu comprobante.</div></div>
+    <div class="card">
+      <h3>➕ Solicitar recarga</h3>
+      <div class="tabs"><button id="yapeTab" class="sel" onclick="setMethod('Yape')">Yape</button><button id="prexTab" onclick="setMethod('Prexpe')">Prexpe</button></div>
+      <div class="note"><b id="payName">Yape · RICARDO LLAMO</b><br><span id="payNumber">997 129 447</span><br><small>Realiza el pago y conserva tu comprobante.</small></div>
+      <div class="field"><label>Monto a recargar (S/)</label><input id="amount" type="number" min="1" step=".01" placeholder="Ej. 10.00"></div>
+      <div class="field"><label>Captura del comprobante</label><input id="proof" type="file" accept="image/*"></div>
+      <button class="cta" onclick="recharge()">ENVIAR RECARGA</button>
+      <div id="rechargeMsg"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>📋 Mis recargas</h3><div id="myTopups" class="orders"></div></div>
+</section>
+
+<section id="payments" class="wrap hidden">
+  <div class="section-title"><h2>💳 Métodos de pago</h2></div>
+  <div class="product-grid">
+    <div class="card"><h2>Yape</h2><p style="font-size:20px"><b>RICARDO LLAMO</b></p><p style="color:#62dfff;font-size:24px"><b>997 129 447</b></p></div>
+    <div class="card"><h2>Prexpe</h2><p style="font-size:20px"><b>CARLA ALESSANDRA</b></p><p style="color:#62dfff;font-size:24px"><b>997 129 447</b></p><div class="note">Si tu número de Prexpe es diferente, cámbialo en la configuración del archivo.</div></div>
+  </div>
+</section>
+
+<section id="account" class="wrap hidden">
+  <div class="section-title"><h2>👤 Mi cuenta</h2></div>
+  <div id="accountContent"></div>
+</section>
+
+<section id="admin" class="wrap hidden">
+  <div class="section-title"><h2>⚙️ Panel de administrador</h2><small>Revisa recargas y pedidos</small></div>
+  <div class="dashboard">
+    <div class="card"><div>Recargas pendientes</div><div id="pendingCount" class="stat">0</div><div>Pedidos pendientes: <span id="pendingOrders">0</span></div></div>
+    <div class="card"><h3>Notificaciones</h3><div id="adminNotice" class="note">Sin novedades.</div></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>💰 Solicitudes de recarga</h3><div id="allTopups" class="orders"></div></div>
+  <div class="card" style="margin-top:18px"><h3>🛒 Pedidos</h3><div id="allOrders" class="orders"></div></div>
+</section>
+
+<footer>JEANE LV · Calidad · Confianza · Buenos precios · WhatsApp 997 129 447 · Instagram @adm_jeanelv</footer>
+
+<div id="authModal" class="modal hidden">
+<div class="modalbox"><button onclick="closeAuth()" style="float:right;background:none;border:0;color:white;font-size:22px">×</button>
+<h2>👤 Cuenta JEANE LV</h2>
+<div class="tabs"><button id="loginTab" class="sel" onclick="authMode('login')">Iniciar sesión</button><button id="registerTab" onclick="authMode('register')">Crear cuenta</button></div>
+<div id="authFields"></div><button class="cta" style="width:100%" onclick="submitAuth()">CONTINUAR</button><div id="authMsg"></div>
+<div class="note">Demo de administrador: <b>admin@jeanelv.local</b> / <b>admin123</b></div>
+</div></div>
+
+<script>
+const GEMS=[[100,3],[300,10],[572,16],[1166,28.5],[2398,52.9],[6160,128]];
+const FRAGS=[[90,23],[150,45],[300,65],[600,90],[1200,165]];
+let method='Yape', auth='login';
+const db=()=>JSON.parse(localStorage.getItem('jeaneDB')||'{"users":[],"topups":[],"orders":[]}');
+const save=d=>localStorage.setItem('jeaneDB',JSON.stringify(d));
+const session=()=>localStorage.getItem('jeaneSession');
+function money(n){return Number(n).toFixed(2)}
+function current(){const d=db();return d.users.find(u=>u.email===session())}
+function ensure(){let d=db(); if(!d.users.length){d.users.push({name:'Demo',email:'demo@jeanelv.local',pass:'demo123',balance:0});save(d)}}
+function renderGems(id){document.getElementById(id).innerHTML=GEMS.map(x=>`<div class="card product"><div class="gem">💎</div><b>${x[0]} 💎</b><div class="price">S/ ${money(x[1])}</div><button class="buy" onclick="buy('${x[0]} Diamantes',${x[1]})">COMPRAR</button></div>`).join('')}
+function renderFragments(){document.getElementById('fragments').innerHTML=FRAGS.map(x=>`<div class="row"><span>${x[0]} 🧩</span><b>S/ ${money(x[1])}</b></div>`).join('')+'<button class="buy" onclick="buy(\"Fragmentos\",23)">COMPRAR DESDE S/ 23.00</button>'}
+function show(id){document.querySelectorAll('body > main,body > section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='wallet')renderWallet();if(id==='account')renderAccount();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+function openAuth(){document.getElementById('authModal').classList.remove('hidden');authMode('login')}
+function closeAuth(){document.getElementById('authModal').classList.add('hidden')}
+function authMode(m){auth=m;document.getElementById('loginTab').classList.toggle('sel',m==='login');document.getElementById('registerTab').classList.toggle('sel',m==='register');document.getElementById('authFields').innerHTML=m==='login'?`<div class="field"><label>Email</label><input id="email" type="email"></div><div class="field"><label>Contraseña</label><input id="pass" type="password"></div>`:`<div class="field"><label>Nombre</label><input id="name"></div><div class="field"><label>Email</label><input id="email" type="email"></div><div class="field"><label>Contraseña</label><input id="pass" type="password"></div>`;document.getElementById('authMsg').innerHTML=''}
+function submitAuth(){let d=db(),email=document.getElementById('email').value.trim().toLowerCase(),pass=document.getElementById('pass').value;if(auth==='register'){let name=document.getElementById('name').value.trim();if(!name||!email||pass.length<6)return msg('authMsg','Completa los datos. La contraseña debe tener 6+ caracteres.');if(d.users.some(u=>u.email===email))return msg('authMsg','Ese correo ya está registrado.');d.users.push({name,email,pass,balance:0});save(d);localStorage.setItem('jeaneSession',email);closeAuth();refresh()}else{let u=d.users.find(u=>u.email===email&&u.pass===pass);if(!u)return msg('authMsg','Correo o contraseña incorrectos.');localStorage.setItem('jeaneSession',email);closeAuth();refresh()}}
+function refresh(){ensure();let u=current();document.getElementById('loginNav').textContent=u?'Cerrar sesión':'Iniciar sesión';document.getElementById('loginNav').onclick=u?logout:openAuth;document.getElementById('balanceNav').classList.toggle('hidden',!u);if(u)document.getElementById('navBalance').textContent=money(u.balance);document.getElementById('adminNav').classList.toggle('hidden',!u||u.email!=='admin@jeanelv.local');renderGems('homeGems');renderGems('productGems');renderFragments()}
+function logout(){localStorage.removeItem('jeaneSession');refresh();show('home')}
+function msg(id,t,ok=false){document.getElementById(id).innerHTML=`<div class="${ok?'success':'danger'}" style="margin-top:10px">${t}</div>`}
+function requireLogin(){if(!current()){openAuth();return false}return true}
+function buy(product,price){if(!requireLogin())return;let d=db(),u=current();if(u.balance<price)return alert('Saldo insuficiente. Recarga tu billetera primero.');u.balance-=price;d.orders.push({id:Date.now(),email:u.email,name:u.name,product,price,status:'Pendiente',created:new Date().toLocaleString('es-PE')});save(d);refresh();alert('✅ Compra registrada. El administrador recibió la notificación del nuevo pedido.');show('account')}
+function setMethod(m){method=m;document.getElementById('yapeTab').classList.toggle('sel',m==='Yape');document.getElementById('prexTab').classList.toggle('sel',m==='Prexpe');document.getElementById('payName').textContent=m==='Yape'?'Yape · RICARDO LLAMO':'Prexpe · CARLA ALESSANDRA';document.getElementById('payNumber').textContent='997 129 447'}
+function recharge(){if(!requireLogin())return;let amount=Number(document.getElementById('amount').value),file=document.getElementById('proof').files[0];if(!amount||amount<=0)return msg('rechargeMsg','Ingresa un monto válido.');if(!file)return msg('rechargeMsg','Adjunta la captura del comprobante.');let d=db(),u=current();d.topups.push({id:Date.now(),email:u.email,name:u.name,method,amount,status:'Pendiente',fileName:file.name,created:new Date().toLocaleString('es-PE')});save(d);document.getElementById('amount').value='';document.getElementById('proof').value='';msg('rechargeMsg','✅ Recarga enviada. Espera la verificación del administrador.',true);renderWallet();if(u.email==='admin@jeanelv.local')renderAdmin()}
+function renderWallet(){if(!requireLogin())return;let u=current(),d=db();document.getElementById('walletBalance').textContent=money(u.balance);document.getElementById('myTopups').innerHTML=d.topups.filter(x=>x.email===u.email).reverse().map(x=>`<div class="order"><div class="orderhead"><b>${x.method} · S/ ${money(x.amount)}</b><span class="status">${x.status}</span></div><small>${x.created} · ${x.fileName}</small></div>`).join('')||'<div class="note">Aún no tienes recargas.</div>'}
+function renderAccount(){let u=current();if(!u){document.getElementById('accountContent').innerHTML='<div class="card"><h3>Inicia sesión para ver tu cuenta.</h3><button class="cta" onclick="openAuth()">INICIAR SESIÓN</button></div>';return}let d=db();document.getElementById('accountContent').innerHTML=`<div class="card"><h3>Hola, ${u.name} 👋</h3><p>${u.email}</p><div class="stat">S/ ${money(u.balance)}</div></div><div class="card" style="margin-top:15px"><h3>🛒 Mis pedidos</h3><div class="orders">${d.orders.filter(x=>x.email===u.email).reverse().map(x=>`<div class="order"><div class="orderhead"><b>${x.product} · S/ ${money(x.price)}</b><span class="status">${x.status}</span></div><small>${x.created}</small></div>`).join('')||'<div class="note">Todavía no tienes pedidos.</div>'}</div></div>`}
+function renderAdmin(){if(!current()||current().email!=='admin@jeanelv.local')return;let d=db(),pt=d.topups.filter(x=>x.status==='Pendiente').length,po=d.orders.filter(x=>x.status==='Pendiente').length;document.getElementById('pendingCount').textContent=pt;document.getElementById('pendingOrders').textContent=po;document.getElementById('adminNotice').innerHTML=pt||po?`🔔 Tienes <b>${pt}</b> recargas y <b>${po}</b> pedidos pendientes.`:'Sin novedades.';document.getElementById('allTopups').innerHTML=d.topups.slice().reverse().map(x=>`<div class="order"><div class="orderhead"><b>${x.name} · ${x.method} · S/ ${money(x.amount)}</b><span class="status">${x.status}</span></div><small>${x.email} · ${x.created} · ${x.fileName}</small>${x.status==='Pendiente'?`<div class="admin-actions"><button class="mini" onclick="approveTopup(${x.id})">✅ Aprobar</button><button class="mini" onclick="rejectTopup(${x.id})">❌ Rechazar</button></div>`:''}</div>`).join('')||'<div class="note">No hay recargas.</div>';document.getElementById('allOrders').innerHTML=d.orders.slice().reverse().map(x=>`<div class="order"><div class="orderhead"><b>${x.product} · S/ ${money(x.price)}</b><span class="status">${x.status}</span></div><small>${x.name} · ${x.email} · ${x.created}</small>${x.status!=='Completado'&&x.status!=='Cancelado'?`<div class="admin-actions"><button class="mini" onclick="orderStatus(${x.id},'En proceso')">🔵 En proceso</button><button class="mini" onclick="orderStatus(${x.id},'Completado')">🟢 Completado</button><button class="mini" onclick="orderStatus(${x.id},'Cancelado')">🔴 Cancelar</button></div>`:''}</div>`).join('')||'<div class="note">No hay pedidos.</div>'}
+function approveTopup(id){let d=db(),x=d.topups.find(t=>t.id===id),u=d.users.find(u=>u.email===x.email);x.status='Aprobada';u.balance+=x.amount;save(d);renderAdmin();alert('Recarga aprobada y saldo acreditado.')}
+function rejectTopup(id){let d=db(),x=d.topups.find(t=>t.id===id);x.status='Rechazada';save(d);renderAdmin()}
+function orderStatus(id,status){let d=db(),x=d.orders.find(o=>o.id===id);x.status=status;save(d);renderAdmin()}
+function contact(){window.open('https://wa.me/51997129447','_blank')}
+ensure();refresh();show('home');
+</script>
+</body>
+</html>
