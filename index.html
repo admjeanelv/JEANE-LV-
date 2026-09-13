@@ -128,7 +128,7 @@ let sb=null,method='Yape',auth='login';
 const GEMS=[[100,3],[300,10],[572,16],[1166,28.5],[2398,52.9],[6160,128]];
 const FRAGS=[[90,23],[150,45],[300,65],[600,90],[1200,165]];
 const money=n=>Number(n||0).toFixed(2);
-const configured=()=>!SUPABASE_URL.includes('PEGA_AQUI')&&!SUPABASE_PUBLISHABLE_KEY.includes('PEGA_AQUI');
+const configured=()=>!SUPABASE_URL.includes('PEGA_AQUI')&&!SUPABASE_PUBLISHABLE_KEY.includes('sb_publishable_xEfP4ONYnYq0InX9H_DtEw_x9o_xIEK');
 function msg(id,t,ok=false){document.getElementById(id).innerHTML=`<div class="${ok?'success':'danger'}" style="margin-top:10px">${t}</div>`}
 function openAuth(){document.getElementById('authModal').classList.remove('hidden');authMode('login')}
 function closeAuth(){document.getElementById('authModal').classList.add('hidden')}
